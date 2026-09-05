@@ -5,15 +5,37 @@ const CartBadge = lazy(() => import('cartRemote/CartBadge'));
 
 export default function App() {
   return (
-    <div style={{ fontFamily: 'sans-serif', maxWidth: '850px', margin: '40px auto', padding: '0 16px' }}>
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '2px solid #111', paddingBottom: '16px' }}>
-        <h1 style={{ margin: 0 }}>Ecommerce Store (Shell)</h1>
-        <Suspense fallback={<span>Loading Cart...</span>}>
+    <div style={{ maxWidth: '960px', margin: '0 auto', padding: '32px 16px' }}>
+      {/* Header Container */}
+      <header
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          borderBottom: '2px solid #e5e7eb',
+          paddingBottom: '20px',
+          gap: '24px',
+        }}
+      >
+        <h1
+          style={{
+            margin: 0,
+            fontSize: '1.75rem',
+            lineHeight: 1.2,
+            fontWeight: 700,
+            color: '#111827',
+          }}
+        >
+          Ecommerce Store <span style={{ color: '#6b7280', fontSize: '1.1rem', fontWeight: 400 }}>(Shell)</span>
+        </h1>
+
+        <Suspense fallback={<div style={{ padding: '8px 16px' }}>Loading Cart...</div>}>
           <CartBadge />
         </Suspense>
       </header>
 
-      <main>
+      {/* Catalog Section */}
+      <main style={{ marginTop: '28px' }}>
         <Suspense fallback={<p>Loading Catalog...</p>}>
           <ProductList />
         </Suspense>
