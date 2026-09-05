@@ -1,0 +1,4 @@
+# ecommerce-mfe/.gitignore
+node_modules
+dist
+.DS_Store
