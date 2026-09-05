@@ -1,19 +1,21 @@
 {
   "name": "ecommerce-mfe-shell",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev:host": "npm run dev --workspace=apps/host-app",
+    "build:products": "npm run build --workspace=apps/products-remote",
+    "serve:products": "npm run preview --workspace=apps/products-remote -- --port 5001",
+    "build:cart": "npm run build --workspace=apps/cart-remote",
+    "serve:cart": "npm run preview --workspace=apps/cart-remote -- --port 5002"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prasadaraod/ecommerce-mfe-shell.git"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/prasadaraod/ecommerce-mfe-shell/issues"
   },
